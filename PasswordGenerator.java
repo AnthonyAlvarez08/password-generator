@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class PasswordGenerator
 {
@@ -30,7 +30,7 @@ public class PasswordGenerator
 
 
         // announce what is automatically included
-        print("The password will include lowercase letters by default");
+        print("The password will include lowercase letters by default\n");
 
         // ask for password length
         System.out.print("Enter password length:  ");
@@ -39,7 +39,7 @@ public class PasswordGenerator
 
         // ask for upper case & add it
         print("include uppercase (y/n)  ");
-        choice = reader.nextLine();
+        choice = reader.next();
         print();
 
         if (choice.equals("y"))
@@ -47,7 +47,7 @@ public class PasswordGenerator
 
         // ask for digits case & add it
         print("include digits/numbers (y/n)  ");
-        choice = reader.nextLine();
+        choice = reader.next();
         print();
 
         if (choice.equals("y"))
@@ -55,7 +55,7 @@ public class PasswordGenerator
 
         // ask for special characters case & add it
         print("include special characters (y/n)  ");
-        choice = reader.nextLine();
+        choice = reader.next();
         print();
 
         if (choice.equals("y"))
@@ -63,7 +63,15 @@ public class PasswordGenerator
 
 
 
-        // finish the program
+        // generate the password
+        for (int i = 0; i < passLength; ++i)
+        {
+            password += passSet.charAt((int)(Math.random() * passSet.length()));
+        }
+
+        // output and exit
+        print("Here is your password: " + password + "\n");
+        print("You should copy it to your clipboard and close the console immediately\n");
         reader.close();
         System.exit(0);
     }
