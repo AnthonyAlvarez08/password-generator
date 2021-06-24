@@ -22,7 +22,7 @@ public class PasswordGenerator
 
     public static void main(String[] args) 
     {
-        Scanner reader = new Scanner(System.in);
+        Scanner reader = new Scanner(System.in);  // to recieve input from the console
         String passSet = new String(lowercase);  // the set of characterss to be included in the password
         String password = "";  // the password that will be output
         int passLength;  // password length
@@ -66,6 +66,7 @@ public class PasswordGenerator
         // generate the password
         for (int i = 0; i < passLength; ++i)
         {
+            // get a random character from the character set
             password += passSet.charAt((int)(Math.random() * passSet.length()));
         }
 
